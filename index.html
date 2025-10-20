@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Desenvolvimento Web</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="quiz-container">
+        <!-- Página de Boas-vindas -->
+        <div id="pagina-boas-vindas">
+            <div class="quiz-titulo">
+                <h1>Bem-vindo ao Quiz!</h1>
+            </div>
+
+            <div class="quiz-body">
+                <div class="boas-vindas-container">
+                    <p class="boas-vindas-texto">Por favor, digite seu nome para começar</p>
+                    <input type="text" id="nome-participante" class="nome-input" placeholder="Digite seu nome" autocomplete="off">
+                </div>
+            </div>
+
+            <div class="quiz-footer">
+                <button id="btn-iniciar" class="btn btn-normal" disabled>Iniciar Quiz</button>
+            </div>
+        </div>
+
+        <!-- Página do Quiz -->
+        <div id="pagina-quiz" style="display: none;">
+            <div class="quiz-titulo">
+                <h1>Quiz</h1>
+                <div class="indicador">
+                    <span class="contador-pergunta">Pergunta <span id="pergunta-atual"></span> de <span id="total-perguntas"></span></span>
+                </div>
+            </div>
+
+            <div class="quiz-body">
+                <div class="pergunta-container">
+                    <h2 id="texto-pergunta"></h2>
+                </div>
+
+                <div class="respostas-container">
+                    <div class="pergunta-opcao" data-pergunta="a">
+                        <input type="radio" name="pergunta" id="pergunta-a" value="a">
+                        <label for="pergunta-a">
+                            <span class="opcao-letra">A</span>
+                            <span class="opcao-texto" id="texto-a"></span>
+                        </label>
+                    </div>
+
+                    <div class="pergunta-opcao" data-pergunta="b">
+                        <input type="radio" name="pergunta" id="pergunta-b" value="b">
+                        <label for="pergunta-b">
+                            <span class="opcao-letra">B</span>
+                            <span class="opcao-texto" id="texto-b"></span>
+                        </label>
+                    </div>
+
+                    <div class="pergunta-opcao" data-pergunta="c">
+                        <input type="radio" name="pergunta" id="pergunta-c" value="c">
+                        <label for="pergunta-c">
+                            <span class="opcao-letra">C</span>
+                            <span class="opcao-texto" id="texto-c"></span>
+                        </label>
+                    </div>
+
+                    <div class="pergunta-opcao" data-pergunta="d">
+                        <input type="radio" name="pergunta" id="pergunta-d" value="d">
+                        <label for="pergunta-d">
+                            <span class="opcao-letra">D</span>
+                            <span class="opcao-texto" id="texto-d"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-footer">
+                <button id="btn-proximo" class="btn btn-normal">Próximo</button>
+            </div>
+        </div>
+
+        <!-- Página de Resultados -->
+        <div id="pagina-resultados" style="display: none;">
+            <div class="quiz-titulo">
+                <h1>Quiz Completo!</h1>
+                <p class="nome-participante-display" id="nome-participante-display"></p>
+            </div>
+
+            <div class="quiz-body">
+                <div class="resultados-container">
+                    <div class="score-display">
+                        <div class="percentual" id="percentual"></div>
+                        <div class="texto-resultados">
+                            <span id="total-corretas"></span> corretas de <span id="total-perguntas-resultado"></span>
+                        </div>
+                    </div>
+
+                    <div class="grafico-container">
+                        <canvas id="grafico-resultados"></canvas>
+                    </div>
+
+                    <div class="mensagem-resultados" id="mensagem-resultados"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
